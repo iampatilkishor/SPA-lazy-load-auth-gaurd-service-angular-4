@@ -1,0 +1,10 @@
+.userName {
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.logoutButton {
+  margin-right: 14px;
+  float: right;
+  margin-top: -30px;
+}

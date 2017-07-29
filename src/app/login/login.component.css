@@ -1,0 +1,17 @@
+.no-border {
+  border: none;
+  color: red;
+}
+
+.customlogin {
+  position: absolute;
+  top: 10%;
+  padding: 49px;
+  text-align: center;
+  box-shadow: 3px 3px 25px #88883B;
+  border-radius: 6%;
+}
+
+.logo {
+  width: 150px;
+}
