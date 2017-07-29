@@ -17,7 +17,7 @@ authenticatenow(usercreds) :Observable<any>{
     this.data['responseCode'] = 1000;
     this.data['auth_key'] = 'dasdjkdha88jnknkj';
   } else{
-    this.data['responseCode'] = 'Clarion123';
+    this.data['responseCode'] = 'invalid';
     this.data['message'] = 'Invalid Credentials';
   }
 return this.data;

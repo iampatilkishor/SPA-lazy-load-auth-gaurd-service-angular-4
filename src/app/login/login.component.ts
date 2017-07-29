@@ -18,6 +18,8 @@ declare var data: any;
 export class LoginComponent implements OnInit {
   form: FormGroup;
   data = <any>{};
+  submitted: boolean = true;
+  invalidCode: String = '';
   response = <any>{};
   constructor(public router: Router, private formBuilder: FormBuilder, private auth: AuthService) {
     const emailPatternMatch = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,4}$/;
@@ -32,17 +34,22 @@ export class LoginComponent implements OnInit {
     for (let i in this.form.controls) {
       this.form.controls[i].markAsTouched();
     }
+
     if (this.form.valid) {
       this.data = this.form.value;
-      this.response = this.auth.authenticatenow(this.data)
+      this.response = this.auth.authenticatenow(this.data);
       if (this.response.responseCode == 1000) {
         Cookie.set('auth_key', this.response.auth_key);
         Cookie.set('user_name', this.data.userName);
         this.isAuthenticated = true;
         this.router.navigate(['/dashboard/dashboard']);
+      }else if (this.response.responseCode == 'invalid') {
+        this.invalidCode = this.response.message;
       }
 
     }
+
+     this.submitted = true;
   }
 
   ngOnInit() {

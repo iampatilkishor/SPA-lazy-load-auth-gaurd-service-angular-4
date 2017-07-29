@@ -4,7 +4,7 @@
     <form [formGroup]="form" (submit)="onSubmit()">
       <div class="form-group" [ngClass]="{'text-danger': form.get('userName').touched && form.get('userName').errors}">
         <label for="name">Name</label>
-        <input type="email" class="form-control" placeholder="Email" name="userName" formControlName="userName" [ngClass]="{'form-control-danger': form.get('userName').touched && form.get('userName').errors}">
+        <input type="email" (click)="submitted=false" class="form-control" placeholder="Email" name="userName" formControlName="userName" [ngClass]="{'form-control-danger': form.get('userName').touched && form.get('userName').errors}">
 
         <p *ngIf="form.get('userName').touched && form.get('userName').errors " class="form-control no-border text-danger">Please enter a valid user name</p>
 
@@ -12,10 +12,11 @@
 
       <div class="form-group" [ngClass]="{'text-danger': form.get('userPassword').touched && form.get('userPassword').errors}">
         <label for="alterEgo">Password</label>
-        <input type="password" class="form-control" formControlName="userPassword"  name="userPassword" required [ngClass]="{'form-control-danger': form.get('userPassword').touched && form.get('userPassword').errors, 'form-control-success': form.get('userPassword').touched && form.get('userPassword').valid}">
+        <input type="password" (click)="submitted=false" class="form-control" formControlName="userPassword"  name="userPassword" required [ngClass]="{'form-control-danger': form.get('userPassword').touched && form.get('userPassword').errors, 'form-control-success': form.get('userPassword').touched && form.get('userPassword').valid}">
         <p *ngIf="form.get('userPassword').touched && !form.get('userPassword').valid"
           class="form-control no-border text-danger">Please enter a valid password</p>
       </div>
+        <h3 *ngIf="submitted" class="text-danger"> {{ invalidCode }} </h3>
       <!-- other controls are here... -->
             <input class="btn btn-primary btn-rounded disp-inline" [disabled]="!form.valid" value="Login" type="submit">
     </form>
