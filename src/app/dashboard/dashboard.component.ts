@@ -1,6 +1,6 @@
 import { OnInit } from '@angular/core';
 import * as $ from 'jquery';
-import 'datatables.net'
+import 'datatables.net';
 import { Cookie } from 'ng2-cookies/ng2-cookies';
 import { ProductsService } from '../products.service';
 import { Product } from '../product';

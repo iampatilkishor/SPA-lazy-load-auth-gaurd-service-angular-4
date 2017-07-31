@@ -6,19 +6,21 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthManager } from './authmanager';
 
 const routes: Routes = [
-{ path: 'dashboard', loadChildren: './dashboard.module#DashboardModule',
-        canActivate: [AuthManager] },
-{ path: '**', component: LoginComponent }
+  {
+    path: 'dashboard', loadChildren: './dashboard.module#DashboardModule',
+    canActivate: [AuthManager]
+  },
+  { path: '**', component: LoginComponent }
 
 ];
 
 @NgModule({
-imports: [
-CommonModule,
-FormsModule,
-ReactiveFormsModule,
-RouterModule.forRoot(routes)],
-exports: [RouterModule],
-declarations: [ LoginComponent ]
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes)],
+  exports: [RouterModule],
+  declarations: [LoginComponent]
 })
 export class AppRoutingModule { }

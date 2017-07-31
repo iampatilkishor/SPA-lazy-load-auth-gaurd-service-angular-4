@@ -43,14 +43,12 @@ export class LoginComponent implements OnInit {
         Cookie.set('user_name', this.data.userName);
         this.isAuthenticated = true;
         this.router.navigate(['/dashboard/dashboard']);
-      }else if (this.response.responseCode == 'invalid') {
+      } else if (this.response.responseCode == 'invalid') {
         this.invalidCode = this.response.message;
       }
-
     }
-
-     this.submitted = true;
-  }
+    this.submitted = true;
+  };
 
   ngOnInit() {
 
