@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from '../login/login.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AuthManager } from './authmanager';
+import { AuthManager } from '../authmanager';
 
 const routes: Routes = [
   {
-    path: 'dashboard', loadChildren: './dashboard.module#DashboardModule',
+    path: 'dashboard', loadChildren: '../dashboard.module#DashboardModule',
     canActivate: [AuthManager]
   },
   { path: '**', component: LoginComponent }
